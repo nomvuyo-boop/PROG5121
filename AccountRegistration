@@ -1,0 +1,101 @@
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package partone;
+import javax.swing.JOptionPane;
+/**
+ *
+ * @author RC_Student_lab
+ */
+public class AccountRegistration {
+    /**
+     * @param username
+     * @param 
+     * @param 
+     * @return 
+     */
+    
+    public static boolean checkUserName (String username){
+        return username.contains("_") && username.length() <= 5;
+    }
+
+    // Method to check password
+    public static boolean checkPassword(String password) {
+        boolean hasCapital = false;
+        boolean hasNumber = false;
+        boolean hasSpecial = false;
+
+        if (password.length() < 8) return false;
+
+        for (char ch : password.toCharArray()) {
+            if (Character.isUpperCase(ch)) hasCapital = true;
+            else if (Character.isDigit(ch)) hasNumber = true;
+            else if (Character.isLetterOrDigit(ch)) hasSpecial = true;
+        }
+
+        return hasCapital && hasNumber && hasSpecial;
+    }
+
+    // Method to check SA cellphone number
+    public static boolean checkCellNumber(String cellNum) {
+        return cellNum.matches("0[6-8][0-9]{8}");
+    }
+
+    public static void main(String[] args, String registeredUsername) {
+        boolean userValid = false, passValid = false, cellValid = false;
+
+        // Username input
+        String username = JOptionPane.showInputDialog("Enter a username:");
+        if (checkUserName(username)) {
+            JOptionPane.showMessageDialog(null, "Username successfully captured.");
+            userValid = true;
+        } else {
+            JOptionPane.showMessageDialog(null,
+                   "Username is not correctly formatted, please ensure that your username contains an underscore and is no more than five characters in length.");
+        }
+
+        // Password input
+        String password = JOptionPane.showInputDialog("Enter a password:");
+        if (checkPassword(password)) {
+            JOptionPane.showMessageDialog(null, "Password successfully captured.");
+            passValid = true;
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Password is invalid; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.");
+                  return;
+        }
+
+        // Cellphone input
+        String cellNum = JOptionPane.showInputDialog("Enter your South African cell phone number:");
+        if (checkCellNumber(cellNum)) {
+            JOptionPane.showMessageDialog(null, "Cellphone number successfully captured.");
+            cellValid = true;
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Cellphone number is not correctly formatted; please enter a valid 10-digit South African cell number starting with 0.");
+        }
+
+        // Final success or failure message
+        if (userValid && passValid && cellValid) {
+            JOptionPane.showMessageDialog(null, "All details successfully captured, account created!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Account could not be created. Please correct the errors or try again");
+        }
+        
+    }
+    
+        
+        
+             
+       
+       
+    
+
+
+
+    
+    
+    
+

@@ -1,0 +1,30 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package partone;
+import javax.swing.JOptionPane;
+
+
+/**
+ *
+ * @author RC_Student_lab
+ */
+public class loginAccount {
+
+    // Method to log in, needs the registered username and password
+    public void loginUser(String regUser, String regPass) {
+        String username = JOptionPane.showInputDialog("Enter username to login:");
+        String password = JOptionPane.showInputDialog("Enter password:");
+
+        if (username.equals(regUser) && password.equals(regPass)) {
+            JOptionPane.showMessageDialog(null, "Login successful! Welcome, " + username + "!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Login failed! Incorrect username or password.");
+        }
+    }
+}
+
+
+    
+

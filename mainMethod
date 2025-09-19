@@ -1,0 +1,47 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package partone;
+/**
+ *
+ * @author RC_Student_lab
+ */
+public class mainMethod {
+    
+    public static void main(String[] args) {
+        
+     // Main.java
+
+ 
+        // Create a registered user
+        User user = new User("john_doe", "Pass@123");
+
+        // Create a login object
+        Login login = new Login();
+
+        // Try logging in
+        if (login.authenticate(user, "john_doe", "Pass@123")) {
+            System.out.println("Welcome, " + user.getUsername() + "!");
+        } else {
+            System.out.println("Username or password incorrect.");
+            // User.java
+
+    
+}
+
+        
+    
+}
+
+    
+    }
+
+   
+
+        
+    
+
+
+    
+
